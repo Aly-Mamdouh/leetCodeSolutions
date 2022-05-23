@@ -1,0 +1,54 @@
+var s: String = readLine()!!.toString()
+    var cnt: Int = 0
+    for (i in 0..s.length - 2) {
+        if (s[i] == 'I' && s[i + 1] == 'V') {
+            cnt += 4
+            val ind: Int = i
+            s = s.replaceRange(ind, ind + 2, "**")
+        } else if (s[i] == 'I' && s[i + 1] == 'X') {
+            val ind: Int = i
+            cnt += 9
+            s = s.replaceRange(ind, ind + 2, "**")
+        } else if (s[i] == 'X' && s[i + 1] == 'L') {
+            val ind: Int = i
+            cnt += 40
+            s = s.replaceRange(ind, ind + 2, "**")
+        } else if (s[i] == 'X' && s[i + 1] == 'C') {
+            val ind: Int = i
+            cnt += 90
+            s = s.replaceRange(ind, ind + 2, "**")
+        } else if (s[i] == 'C' && s[i + 1] == 'D') {
+            val ind: Int = i
+            cnt += 400
+            s = s.replaceRange(ind, ind + 2, "**")
+        } else if (s[i] == 'C' && s[i + 1] == 'M') {
+            val ind: Int = i
+            cnt += 900
+            s = s.replaceRange(ind, ind + 2, "**")
+        }
+    }
+    for (i in 0..s.length - 1) {
+        if (s[i] != '*') {
+            if (s[i] == 'I') {
+                cnt += 1
+            } else if (s[i] == 'V') {
+                cnt += 5
+            }
+            if (s[i] == 'X') {
+                cnt += 10
+            }
+            if (s[i] == 'L') {
+                cnt += 50
+            }
+            if (s[i] == 'C') {
+                cnt += 100
+            }
+            if (s[i] == 'D') {
+                cnt += 500
+            }
+            if (s[i] == 'M') {
+                cnt += 1000
+            }
+        }
+    }
+    println(cnt)
